@@ -36,4 +36,11 @@ document.addEventListener("DOMContentLoaded", () => {
       footerNav += `<a href="${prevFile}">← ${prevYear}</a>`;
     }
     if (yearIndex < years.length - 1) {
-      const nextYear
+      const nextYear = years[yearIndex + 1];
+      const nextFile = (nextYear === years[0]) ? "index.html" : `${nextYear}.html`;
+      footerNav += `<span style="margin-left:20px"></span><a href="${nextFile}">${nextYear} →</a>`;
+    }
+    footerNav += "</div>";
+    document.body.insertAdjacentHTML("beforeend", footerNav);
+  }
+});
