@@ -1,1 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>FRHD Timeline</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 20px;
+      line-height: 1.5;
+    }
+    .track {
+      margin: 10px 0;
+    }
+    .track img {
+      max-width: 100%;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+  <h1>FRHD Timeline</h1>
+
+  <!-- Paste your forum BBCode here -->
+  <div id="content">
+   
+  </div>
+
+  <script>
+    function renderBBCode() {
+      const content = document.getElementById("content");
+      let html = content.innerHTML;
+
+      // Replace [TRACK=id] with thumbnail + link
+      html = html.replace(/\[TRACK=(\d+)\]/g, function(match, id) {
+        return `<div class="track">
+                  <a href="https://www.freeriderhd.com/t/${id}" target="_blank">
+                    <img src="https://www.freeriderhd.com/t/${id}" alt="Track ${id} Thumbnail">
+                  </a>
+                </div>`;
+      });
+
+      content.innerHTML = html;
+    }
+
+    renderBBCode();
+  </script>
+</body>
+</html>
 
